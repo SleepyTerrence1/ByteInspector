@@ -25,9 +25,23 @@ def FileReader():
                 return
 
             content = file.read(number)
-            print(f"Bytes(in hex): {content.hex()}")
+            print("Offset    Hexadecimal                                      ASCII")
+            for start in range(0, len(content), 16):
+                row = content[start:start + 16]
+
+                hex_bytes = " ".join(f"{byte:02X}" for byte in row)
+
+                ascii_text = "".join(
+                    chr(byte) if 32 <= byte <= 126 else "."
+                    for byte in row
+                )
+                
+                print(f"{start:08X}  {hex_bytes:<47}  {ascii_text}")
+            
             file.seek(0)
+
             content = file.read(16)
+
             for key, value in File_Signatures.items():
                 if content.startswith(value):
                     print(f"File Type: {key}")
