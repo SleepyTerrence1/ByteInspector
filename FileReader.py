@@ -9,9 +9,8 @@ def FileReader():
     }
     try:
         with open(file_path, "rb") as file:
-            content = file.read()
             print("File content:")
-            print(len(content))
+            print(f"File Size: {len(content)} bytes")
             try:
                 number = int(input("Enter the number of bytes to display (in hex): "))
             except ValueError:
@@ -22,7 +21,7 @@ def FileReader():
                 print("Invalid input. Please enter a non-negative integer.")
                 return
 
-            print(content[:number].hex())
+            print(f"Bytes(in hex): {content[:number].hex()}")
 
             for key, value in File_Signatures.items():
                 if content.startswith(value):
