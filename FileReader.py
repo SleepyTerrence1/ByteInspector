@@ -13,28 +13,18 @@ def FileReader():
             print("File content:")
             print(len(content))
 
-            number = int(input("Enter the number of bytes to display (in hex):"))
+            number = int(input("Enter the number of bytes to display (in hex): "))
 
             print(content[:number].hex())
-
-            for i in File_Signatures.items():
-                if content.startswith(File_Signatures[i]):
-                    print(f"File Type: {i}")
-                    break
+            try:
+                for key, value in File_Signatures.items():
+                    if content.startswith(value):
+                        print(f"File Type: {key}")
+                        break
                 else:
-                    return print("File Type: Unknown")
-            """
-            if content.startswith(File_Signatures["JPEG"]):
-                print("File Type: JPEG")
-            elif content.startswith(File_Signatures["GIF"]):
-                print("File Type: GIF")
-            elif content.startswith(File_Signatures["PNG"]):
-                print("File Type: PNG")
-            elif content.startswith(File_Signatures["PDF"]):
-                print("File Type: PDF")
-            else:
-                print("File Type: Unknown")
-            """
+                    print("File Type: Unknown")
+            except Exception as e:
+                print(f"An error occurred while determining the file type: {e}")
     except FileNotFoundError:
         print(f"Error: The file at '{file_path}' was not found.")
 
