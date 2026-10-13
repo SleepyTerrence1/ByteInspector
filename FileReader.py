@@ -26,7 +26,8 @@ def FileReader():
 
             content = file.read(number)
             print(f"Bytes(in hex): {content.hex()}")
-
+            file.seek(0)
+            content = file.read(16)
             for key, value in File_Signatures.items():
                 if content.startswith(value):
                     print(f"File Type: {key}")
