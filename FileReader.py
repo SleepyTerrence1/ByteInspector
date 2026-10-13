@@ -12,19 +12,24 @@ def FileReader():
             content = file.read()
             print("File content:")
             print(len(content))
+            try:
+                number = int(input("Enter the number of bytes to display (in hex): "))
+            except ValueError:
+                print("Invalid input. Please enter a valid integer.")
+                return
 
-            number = int(input("Enter the number of bytes to display (in hex): "))
+            if number < 0:
+                print("Invalid input. Please enter a non-negative integer.")
+                return
 
             print(content[:number].hex())
-            try:
-                for key, value in File_Signatures.items():
-                    if content.startswith(value):
-                        print(f"File Type: {key}")
-                        break
-                else:
-                    print("File Type: Unknown")
-            except Exception as e:
-                print(f"An error occurred while determining the file type: {e}")
+
+            for key, value in File_Signatures.items():
+                if content.startswith(value):
+                    print(f"File Type: {key}")
+                    break
+            else:
+                print("File Type: Unknown")
     except FileNotFoundError:
         print(f"Error: The file at '{file_path}' was not found.")
 
