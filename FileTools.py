@@ -43,22 +43,22 @@ def FileIntegrityChecker():
         print("Error: File not found.")
 
 
-    def BinaryFileComparator():
-        file1_path = input("Enter the first file path: ")
-        file2_path = input("Enter the second file path: ")
+def BinaryFileComparator():
+    file1_path = input("Enter the first file path: ")
+    file2_path = input("Enter the second file path: ")
 
 
-        try:
-            with open(file1_path, "rb") as file1:
-                data1 = file1.read()
+    try:
+        with open(file1_path, "rb") as file1:
+            data1 = file1.read()
 
-            with open(file2_path, "rb") as file2:
-                data2 = file2.read()
+        with open(file2_path, "rb") as file2:
+            data2 = file2.read()
 
-            if data1 == data2:
-                print("The files are identical.")
-            else:
-                print("The files are different.")
+        if data1 == data2:
+            print("The files are identical.")
+        else:
+            print("The files are different.")
 
-        except FileNotFoundError:
-            print("Error: One or both files could not be found.")
+    except FileNotFoundError:
+        print("Error: One or both files could not be found.")
