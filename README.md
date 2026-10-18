@@ -1,3 +1,7 @@
+
+
+https://github.com/user-attachments/assets/5124f4cc-218d-4e81-ab86-5a552eb7aba9
+
 # ByteInspector
 BinaryInspector is a python written application designed to do a couple of things. 
 These things may include reading a file, checking a files integrity, etc. ByteInspector
@@ -25,5 +29,6 @@ blocks.
 3. Run the application `python3 Main.py` for Linux/MacOS, `python Main.py` for Windows
 # Video
 Linux(WSL) based example
-<video src="./Videos/ByteInspectorExampleLinux.mp4" controls width="100%"></video>
+https://github.com/user-attachments/assets/1abb11ef-37a0-4a87-9d42-ece3a1ec483b
+
 
