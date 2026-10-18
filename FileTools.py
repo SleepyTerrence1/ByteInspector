@@ -1,33 +1,64 @@
 import hashlib
 
-def Tools():
+def ByteFinder():
     file_path = input("Enter a file path: ")
-    File_Signatures = {
-        "JPEG": bytes.fromhex("FFD8FF"),
-        "PNG": bytes.fromhex("89504E470D0A1A0A"),
-        "GIF": bytes.fromhex("47494638"),
-        "PDF": bytes.fromhex("25504446"),
-    }
+    search_text = input("Enter text to search for: ")
 
 
-    def ByteFinder():
-        pass
-    def FileIntegrityChecker():
-        try:
-            def CalculateFileHash(file_path):
-                sha256 = hashlib.sha256()
+    try:
+        with open(file_path, "rb") as file:
+            content = file.read()
 
-                with open(file_path, "rb") as file:
-                    while True:
-                        chunk = file.read(4096)
+        search_bytes = search_text.encode("utf-8")
+        position = content.find(search_bytes)
 
-                        if not chunk:
-                            break
+        if position != -1:
+            print(f"Match found at offset: {position:08X}")
+        else:
+            print("No match found.")
 
-                        sha256.update(chunk)
-                return sha256.hexdigest()
-        except FileNotFoundError:
-            print(f"Error: The file at '{file_path}' was not found.")
+    except FileNotFoundError:
+        print("Error: File not found.")
+
+
+def FileIntegrityChecker():
+    file_path = input("Enter a file path: ")
+
+
+    try:
+        sha256 = hashlib.sha256()
+
+        with open(file_path, "rb") as file:
+            while True:
+                chunk = file.read(4096)
+
+                if not chunk:
+                    break
+
+                sha256.update(chunk)
+
+        print("SHA-256:", sha256.hexdigest())
+
+    except FileNotFoundError:
+        print("Error: File not found.")
+
+
     def BinaryFileComparator():
-        pass
-#Finish after Terra ends
+        file1_path = input("Enter the first file path: ")
+        file2_path = input("Enter the second file path: ")
+
+
+        try:
+            with open(file1_path, "rb") as file1:
+                data1 = file1.read()
+
+            with open(file2_path, "rb") as file2:
+                data2 = file2.read()
+
+            if data1 == data2:
+                print("The files are identical.")
+            else:
+                print("The files are different.")
+
+        except FileNotFoundError:
+            print("Error: One or both files could not be found.")
