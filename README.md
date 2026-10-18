@@ -1,5 +1,5 @@
 # ByteInspector
-BinaryInspector is a python written application designed to do a couple of things. 
+ByteInspector is a python written application designed to do a couple of things. 
 These things may include reading a file, checking a files integrity, etc. ByteInspector
 is designed to do these things efficiently and fast as possible.
 # Features
