@@ -21,8 +21,8 @@ blocks.
 # Running the Project
 1. Install Python3 if you haven't already, make sure its version 3.12.3 or later. `python3 --version` for Linux/MacOS and `python --version` for Windows
 2. run `git clone https://github.com/SleepyTerrence1/ByteInspector.git` into a terminal
-2. enter the project directory `cd ByteInspector`
-3. Run the application `python3 Main.py` for Linux/MacOS, `python Main.py` for Windows
+3. enter the project directory `cd ByteInspector`
+4. Run the application `python3 Main.py` for Linux/MacOS, `python Main.py` for Windows
 # Video
 Linux(WSL) based example
 
