@@ -10,6 +10,7 @@ is designed to do these things efficiently and fast as possible.
 - displays offset
 - able to compare two files
 - able to find a specific content within files
+- 2 test images if you want to try it yourself.
 # What I learned
 - Firstly, I learned how to access specific files within a computer then access and 
 read it's contents fast and efficiently using the python in-built functions
@@ -23,4 +24,6 @@ blocks.
 2. enter the project directory `cd ByteInspector`
 3. Run the application `python3 Main.py` for Linux/MacOS, `python Main.py` for Windows
 # Video
+Linux(WSL) based example
+<video src="./Videos/ByteInspectorExampleLinux.mp4" controls width="100%"></video>
 
